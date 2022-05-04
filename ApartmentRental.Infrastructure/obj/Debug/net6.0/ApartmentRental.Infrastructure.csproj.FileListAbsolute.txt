@@ -1,0 +1,12 @@
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\bin\Debug\net6.0\ApartmentRental.Infrastructure.deps.json
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\bin\Debug\net6.0\ApartmentRental.Infrastructure.dll
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\bin\Debug\net6.0\ApartmentRental.Infrastructure.pdb
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.AssemblyInfo.cs
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.dll
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\refint\ApartmentRental.Infrastructure.dll
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ApartmentRental.Infrastructure.pdb
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.Infrastructure\obj\Debug\net6.0\ref\ApartmentRental.Infrastructure.dll
