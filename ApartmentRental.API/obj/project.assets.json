@@ -531,6 +531,20 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "ApartmentRental.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ApartmentRental.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApartmentRental.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1316,10 +1330,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ApartmentRental.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ApartmentRental.Infrastructure/ApartmentRental.Infrastructure.csproj",
+      "msbuildProject": "../ApartmentRental.Infrastructure/ApartmentRental.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ApartmentRental.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.3",
       "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.3",
@@ -1350,7 +1370,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Infrastructure\\ApartmentRental.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Infrastructure\\ApartmentRental.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
