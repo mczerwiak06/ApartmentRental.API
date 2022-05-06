@@ -39,16 +39,20 @@ public class ApartmentRepository : IApartmentRepository
 
     public async Task AddAsync(Apartment entity)
     {
-        var apartmentToAdd = await _mainContext.Apartment.SingleOrDefaultAsync(x => x.Address == entity.Address);
-        if (apartmentToAdd == null)
+        var apartmentToAdd = await _mainContext.Apartment.AnyAsync(x =>
+            x.Address.Street == entity.Address.Street &&
+            x.Address.AppartmentNumber == entity.Address.AppartmentNumber &&
+            x.Address.BuildingNumber == entity.Address.BuildingNumber &&
+            x.Address.City == entity.Address.City &&
+            x.Address.PostCode == entity.Address.PostCode &&
+            x.Address.Country == entity.Address.Country);
+        if (apartmentToAdd)
         {
-            entity.DateOfCreation = DateTime.UtcNow;
-            await _mainContext.AddAsync(entity);
-            await _mainContext.SaveChangesAsync();
+            throw new EntityAlreadyExistsException();
         }
-
-        throw new EntityAlreadyExistsException();
-
+        entity.DateOfCreation = DateTime.UtcNow;
+        await _mainContext.AddAsync(entity);
+        await _mainContext.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(Apartment entity)
