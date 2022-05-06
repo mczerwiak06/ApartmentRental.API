@@ -4,27 +4,27 @@ namespace ApartmentRental.Infrastructure.Repository;
 
 public class ImageRepository : IImageRepository
 {
-    public Task Add(Image entity)
+    public Task AddAsync(Image entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Image>> GetAll()
+    public Task<IEnumerable<Image>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Image> GetById(int id)
+    public Task<Image> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task Update(Image entity)
+    public Task UpdateAsync(Image entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteById(int id)
+    public Task DeleteByIdAsync(int id)
     {
         throw new NotImplementedException();
     }

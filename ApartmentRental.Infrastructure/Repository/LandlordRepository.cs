@@ -4,27 +4,27 @@ namespace ApartmentRental.Infrastructure.Repository;
 
 public class LandlordRepository : ILandlordRepository
 {
-    public Task<IEnumerable<Landlord>> GetAll()
+    public Task<IEnumerable<Landlord>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Landlord> GetById(int id)
+    public Task<Landlord> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task Add(Landlord entity)
+    public Task AddAsync(Landlord entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task Update(Landlord entity)
+    public Task UpdateAsync(Landlord entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteById(int id)
+    public Task DeleteByIdAsync(int id)
     {
         throw new NotImplementedException();
     }

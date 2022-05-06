@@ -4,27 +4,27 @@ namespace ApartmentRental.Infrastructure.Repository;
 
 public class AddressRepository : IAddressRepository
 {
-    public Task<IEnumerable<Address>> GetAll()
+    public Task<IEnumerable<Address>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Address> GetById(int id)
+    public Task<Address> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task Add(Address entity)
+    public Task AddAsync(Address entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task Update(Address entity)
+    public Task UpdateAsync(Address entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteById(int id)
+    public Task DeleteByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
