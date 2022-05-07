@@ -84,3 +84,4 @@ public class ApartmentRepository : IApartmentRepository
         throw new EntityNotFoundException();
     }
 }
+
