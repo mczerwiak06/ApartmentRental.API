@@ -1,4 +1,6 @@
+using ApartmentRental.Core.Services;
 using ApartmentRental.Infrastructure.Context;
+using ApartmentRental.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,11 @@ builder.Services.AddDbContext<MainContext>(options =>
         sqlOptions => sqlOptions.MigrationsAssembly("ApartmentRental.Infrastructure")
     )
 );
+
+builder.Services.AddScoped<IApartmentRepository, ApartmentRepository>();
+builder.Services.AddScoped<IApartmentService, ApartmentService>();
+builder.Services.AddScoped<IAddressService, AddressService>();
+
 
 var app = builder.Build();
 

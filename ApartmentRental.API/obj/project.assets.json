@@ -532,6 +532,19 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "ApartmentRental.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ApartmentRental.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ApartmentRental.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApartmentRental.Core.dll": {}
+        }
+      },
       "ApartmentRental.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1331,6 +1344,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ApartmentRental.Core/1.0.0": {
+      "type": "project",
+      "path": "../ApartmentRental.Core/ApartmentRental.Core.csproj",
+      "msbuildProject": "../ApartmentRental.Core/ApartmentRental.Core.csproj"
+    },
     "ApartmentRental.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../ApartmentRental.Infrastructure/ApartmentRental.Infrastructure.csproj",
@@ -1339,6 +1357,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ApartmentRental.Core >= 1.0.0",
       "ApartmentRental.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.3",
@@ -1371,6 +1390,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Core\\ApartmentRental.Core.csproj": {
+              "projectPath": "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Core\\ApartmentRental.Core.csproj"
+            },
             "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Infrastructure\\ApartmentRental.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\BGR\\RiderProjects\\ApartmentRental.API\\ApartmentRental.Infrastructure\\ApartmentRental.Infrastructure.csproj"
             }
