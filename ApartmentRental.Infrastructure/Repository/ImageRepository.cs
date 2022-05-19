@@ -1,31 +1,64 @@
-﻿using ApartmentRental.Infrastructure.Entities;
+﻿using ApartmentRental.Infrastructure.Context;
+using ApartmentRental.Infrastructure.Entities;
+using ApartmentRental.Infrastructure.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApartmentRental.Infrastructure.Repository;
 
 public class ImageRepository : IImageRepository
 {
-    public Task AddAsync(Image entity)
+    private readonly MainContext _mainContext;
+
+    public ImageRepository(MainContext mainContext)
     {
-        throw new NotImplementedException();
+        _mainContext = mainContext;
+    }
+    public async Task AddAsync(Image entity)
+    {
+        entity.DateOfCreation = DateTime.UtcNow;
+        await _mainContext.AddAsync(entity);
+        await _mainContext.SaveChangesAsync();
     }
 
-    public Task<IEnumerable<Image>> GetAllAsync()
+    public async Task<IEnumerable<Image>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var image = await _mainContext.Image.ToListAsync();
+        return image;
     }
 
-    public Task<Image> GetByIdAsync(int id)
+    public async Task<Image> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var image = await _mainContext.Image.SingleOrDefaultAsync(x => x.Id == id);
+        if (image != null)
+        {
+            return image;
+        }
+
+        throw new EntityNotFoundException();
     }
 
-    public Task UpdateAsync(Image entity)
+    public async Task UpdateAsync(Image entity)
     {
-        throw new NotImplementedException();
+        var imageToUpdate = await _mainContext.Image.SingleOrDefaultAsync(x => x.Id == entity.Id);
+        if (imageToUpdate == null)
+        {
+            throw new EntityNotFoundException();
+        }
+
+        imageToUpdate.Data = entity.Data;
+        imageToUpdate.ApartmentId = entity.ApartmentId;
+        await _mainContext.SaveChangesAsync();
     }
 
-    public Task DeleteByIdAsync(int id)
+    public async Task DeleteByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var imageToDelete = await _mainContext.Image.SingleOrDefaultAsync(x => x.Id == id);
+        if (imageToDelete != null)
+        {
+            _mainContext.Image.Remove(imageToDelete);
+            await _mainContext.SaveChangesAsync();
+        }
+
+        throw new EntityNotFoundException();
     }
 }

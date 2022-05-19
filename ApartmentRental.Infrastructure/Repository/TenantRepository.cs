@@ -1,31 +1,71 @@
-﻿using ApartmentRental.Infrastructure.Entities;
+﻿using ApartmentRental.Infrastructure.Context;
+using ApartmentRental.Infrastructure.Entities;
+using ApartmentRental.Infrastructure.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApartmentRental.Infrastructure.Repository;
 
 public class TenantRepository : ITenantRepository
 {
-    public Task<IEnumerable<Tenant>> GetAllAsync()
+    private readonly MainContext _mainContext;
+
+    public TenantRepository(MainContext mainContext)
     {
-        throw new NotImplementedException();
+        _mainContext = mainContext;
+    }
+    public async Task<IEnumerable<Tenant>> GetAllAsync()
+    {
+        var tenant = await _mainContext.Tenant.ToListAsync();
+        return tenant;
     }
 
-    public Task<Tenant> GetByIdAsync(int id)
+    public async Task<Tenant> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var tenant = await _mainContext.Tenant.SingleOrDefaultAsync(x => x.Id == id);
+        if (tenant == null)
+        {
+            throw new EntityNotFoundException();
+        }
+
+        return tenant;
     }
 
-    public Task AddAsync(Tenant entity)
+    public async Task AddAsync(Tenant entity)
     {
-        throw new NotImplementedException();
+        var tenantToAdd = await _mainContext.Tenant.AnyAsync(x => x.Id == entity.Id);
+        if (tenantToAdd)
+        {
+            throw new EntityAlreadyExistsException();
+        }
+        entity.DateOfCreation = DateTime.UtcNow;
+        await _mainContext.AddAsync(tenantToAdd);
+        await _mainContext.SaveChangesAsync();
     }
 
-    public Task UpdateAsync(Tenant entity)
+    public async Task UpdateAsync(Tenant entity)
     {
-        throw new NotImplementedException();
+        var tenantToUpdate = await _mainContext.Tenant.SingleOrDefaultAsync(x => x.Id == entity.Id);
+        if (tenantToUpdate == null)
+        {
+            throw new EntityNotFoundException();
+        }
+
+        tenantToUpdate.Apartment = entity.Apartment;
+        tenantToUpdate.AccountId = entity.AccountId;
+        tenantToUpdate.Account = entity.Account;
+        tenantToUpdate.DateOfUpdate = DateTime.UtcNow;
+        await _mainContext.SaveChangesAsync();
     }
 
-    public Task DeleteByIdAsync(int id)
+    public async Task DeleteByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var tenantToDelete = await _mainContext.Tenant.SingleOrDefaultAsync(x => x.Id == id);
+        if (tenantToDelete == null)
+        {
+            throw new EntityNotFoundException();
+        }
+
+        _mainContext.Tenant.Remove(tenantToDelete);
+        await _mainContext.SaveChangesAsync();
     }
 }
