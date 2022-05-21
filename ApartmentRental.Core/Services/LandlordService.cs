@@ -34,6 +34,7 @@ public class LandlordService : ILandlordService
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email,
+                IsAccountActive = "true",
                 Telephone = dto.Telephone,
                 DateOfCreation = DateTime.UtcNow,
                 DateOfUpdate = DateTime.UtcNow

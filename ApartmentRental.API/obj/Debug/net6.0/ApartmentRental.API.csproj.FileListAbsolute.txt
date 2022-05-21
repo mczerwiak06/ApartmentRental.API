@@ -54,3 +54,5 @@ C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\obj\Debug\net
 C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\obj\Debug\net6.0\ApartmentRental.API.pdb
 C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\obj\Debug\net6.0\ApartmentRental.API.genruntimeconfig.cache
 C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\obj\Debug\net6.0\ref\ApartmentRental.API.dll
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\bin\Debug\net6.0\ApartmentRental.Core.dll
+C:\Users\BGR\RiderProjects\ApartmentRental.API\ApartmentRental.API\bin\Debug\net6.0\ApartmentRental.Core.pdb
