@@ -131,7 +131,7 @@ namespace ApartmentRental.Infrastructure.Migrations
                     b.Property<int>("Square")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TenantId")
+                    b.Property<int?>("TenantId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -243,9 +243,7 @@ namespace ApartmentRental.Infrastructure.Migrations
 
                     b.HasOne("ApartmentRental.Infrastructure.Entities.Tenant", "Tenant")
                         .WithOne("Apartment")
-                        .HasForeignKey("ApartmentRental.Infrastructure.Entities.Apartment", "TenantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApartmentRental.Infrastructure.Entities.Apartment", "TenantId");
 
                     b.Navigation("Address");
 
