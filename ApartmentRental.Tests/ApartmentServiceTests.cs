@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ApartmentRental.Core.Services;
+using ApartmentRental.Infrastructure.Entities;
+using ApartmentRental.Infrastructure.Repository;
+using FluentAssertions;
 using Moq;
 using Xunit;
 
@@ -19,6 +23,7 @@ public class ApartmentServiceTests
     [Fact]
     public async Task GetTheCheapestApartmentAsync_ShouldReturnTheCheapestApartment()
     {
+
         var apartments = new List<Apartment>
         {
             new()
@@ -57,5 +62,19 @@ public class ApartmentServiceTests
             }
 
         };
+        var apartmentRepositoryMock = new Moq.Mock<IApartmentRepository>();
+        apartmentRepositoryMock.Setup(x => x.GetAllAsync()).ReturnsAsync(apartments);
+
+        var sut = new ApartmentService(apartmentRepositoryMock.Object, Mock.Of<ILandlordRepository>(),
+            Mock.Of<IAddressService>());
+
+        var result = await sut.GetTheCheapestApartmentAsync();
+        result.Should().NotBeNull();
+        result.City.Should().Be("Gdynia");
+        result.Street.Should().Be("Śląska");
+        result.Price.Should().Be(900);
+        result.Square.Should().Be(42);
+        result.RoomsNumber.Should().Be(1);
+        result.IsElevator.Should().BeTrue();
     }
 }
