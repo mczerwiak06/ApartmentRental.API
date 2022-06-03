@@ -61,8 +61,15 @@ public class LandlordRepository : ILandlordRepository
         await _mainContext.SaveChangesAsync();
     }
 
-    public Task DeleteByIdAsync(int id)
+    public async Task DeleteByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var landLordToDelete = await _mainContext.Landlord.SingleOrDefaultAsync(x => x.Id == id);
+        if (landLordToDelete == null)
+        {
+            throw new EntityNotFoundException();
+        }
+
+        _mainContext.Landlord.Remove(landLordToDelete);
+        await _mainContext.SaveChangesAsync();
     }
 }

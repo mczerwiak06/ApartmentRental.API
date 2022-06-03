@@ -1,5 +1,6 @@
 ﻿using ApartmentRental.Core.DTO;
 using ApartmentRental.Infrastructure.Entities;
+using ApartmentRental.Infrastructure.Exceptions;
 using ApartmentRental.Infrastructure.Repository;
 
 namespace ApartmentRental.Core.Services;
@@ -33,6 +34,10 @@ public class ApartmentService : IApartmentService
     public async Task AddNewApartmentToExistingLandLordAsync(ApartmentCreationRequestDto dto)
     {
         var landlord = await _landlordRepository.GetByIdAsync(dto.LandlordId);
+        if (landlord == null)
+        {
+            throw new EntityNotFoundException();
+        }
         var addressId = await _addressService.GetAddressIdOrCreateAsync(dto.Country, dto.City, dto.PostCode, dto.Street,
             dto.BuildingNumber, dto.ApartmentNumber);
 

@@ -21,4 +21,5 @@ public class LandLordController : ControllerBase
         await _landlordService.AddNewLandlordAsync(dto);
         return NoContent();
     }
+    
 }
